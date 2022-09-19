@@ -69,11 +69,9 @@ git push -u origin master
 
     - npx crcf src/components/Footer/CurrentWeather -j
 
-    - npx crcf src/components/Main/Home TodoList -j
+    - npx crcf src/components/Main/Home TodoList WeatherList -j
 
     - npx crcf src/components/Main/TodoList/TodoItem -j
-
-    - npx crcf src/components/Main/WeatherList -j
 
     - npx crcf src/components/Main/WeatherList/WeatherCard -j
 
