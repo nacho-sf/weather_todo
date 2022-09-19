@@ -59,7 +59,7 @@ git push -u origin master
 
 - Se limpia el código por defecto (átomo giratorio) de App.js, que está dentro de la etiqueta div.
 
-- Se escribe el componente "BrowserRouter" dentro de "div", y los componentes principales(Head Main Footer) dentro de "BrowserRouter". Así quedaría App.js:
+- Se importan los componentes BrowserRouter, Header, Main y Footer, y se escriben de tal manera que App.js quedaría así:
 ```
 import Header from './components/Header';
 import Main from './components/Main';
