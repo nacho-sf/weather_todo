@@ -55,12 +55,30 @@ git push -u origin master
 
 .
 
-## Creación y conexión de componentes iniciales
+## Creación, estructuración y conexión de componentes
+
+- Se crean los componentes con el generador instalado:
+
+    - npx crcf src/components/Header Main Footer -j
+
+    - npx crcf src/components/Header/Nav -j
+
+    - npx crcf src/components/Main/TodoList -j
+
+    - npx crcf src/components/Main/TodoList/TodoItem -j
+
+    - npx crcf src/components/Main/WeatherList -j
+
+    - npx crcf src/components/Main/WeatherList/WeatherCard -j
+
+    - npx crcf src/components/Footer/CurrentWeather -j
+
 
 - Se limpia el código por defecto (átomo giratorio) de App.js, que está dentro de la etiqueta div.
 
 - Se importan los componentes BrowserRouter, Header, Main y Footer, y se escriben de tal manera que App.js quedaría así:
 ```
+import './App.css';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
