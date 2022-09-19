@@ -33,7 +33,7 @@ git push -u origin master
 
 .
 
-## Diseño de la estructura de carpetas
+## Diseño de la estructura de componentes
 
 - Header
 
