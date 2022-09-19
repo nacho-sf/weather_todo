@@ -1,5 +1,9 @@
 # Documentación del desarrollo de la App TODOLIST
 
+.
+
+## Inicialización y librerías
+
 - Abrimos Visual y nos situamos en la terminal, en la carpeta donde queramos crear la carpeta del proyecto.
 
 - Se instala "npx create-react-app todolist" para crear automáticamente la parte de backend del proyecto.
