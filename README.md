@@ -2,7 +2,7 @@
 
 .
 
-## Inicialización y librerías
+## Inicialización e instalación de librerías
 
 - Abrimos Visual y nos situamos en la terminal, en la carpeta donde queramos crear la carpeta del proyecto.
 
