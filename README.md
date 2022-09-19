@@ -1,4 +1,4 @@
-# Documentación del desarrollo de la App TODOLIST
+# Documentación del desarrollo de la App WEATHER_TODO
 
 .
 
@@ -23,8 +23,32 @@ git push -u origin master
 
 - Se instala la extensión de VisualCode ES7+ React/Redux/React-Native para tener atajos de teclado.
 
-- Se instala una extensión de chrome "React Developer Tools" para visualizar el arbol de componentes
+- Se instala una extensión de chrome "React Developer Tools" para visualizar el arbol de componentes.
 
 - Se instala un generador de id's únicos: "npm i uuid".
 
-- Se instala un generador de carpetas: "npm i --save-dev create-react-component-folder"
+- Se instala un generador de carpetas: "npm i --save-dev create-react-component-folder".
+
+- Se instala "npm i react-router-dom@6" para el enrutado de la aplicación y que nos muestre los componentes.
+
+.
+
+## Diseño de la estructura de carpetas
+
+- Header
+
+    - Nav
+
+- Main
+
+    - TodoList
+
+        - TodoItem
+
+    - WeatherList
+
+        - WeatherCard
+
+- Footer
+
+    - CurrentWeather
