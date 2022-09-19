@@ -52,3 +52,46 @@ git push -u origin master
 - Footer
 
     - CurrentWeather
+
+.
+
+## Creación y conexión de componentes iniciales
+
+- Se limpia el código por defecto (átomo giratorio) de App.js, que está dentro de la etiqueta div.
+
+- Se escribe el componente "BrowserRouter" dentro de "div", y los componentes principales(Head Main Footer) dentro de "BrowserRouter". Así quedaría App.js:
+```
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
+import { BrowserRouter } from 'react-router-dom';
+
+function App() {
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Header/>
+        <Main/>
+      </BrowserRouter>
+      <Footer/>
+    </div>
+  );
+}
+
+export default App;
+```
+
+
+
+
+
+
+- Mirar la lógica de Nacho 3 para vaciar los imputs
+
+- Usar React Leaflet para mapas
+
+- Usar librería MUI
+
+- Para crear la estructura inicial de los componentes se usa el atajo de teclado "rce"
+
+- IMportación de Header Main y Footer a App
