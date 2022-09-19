@@ -73,6 +73,7 @@ git push -u origin master
 
     - npx crcf src/components/Footer/CurrentWeather -j
 
+.
 
 - Se limpia el código por defecto (átomo giratorio) de App.js, que está dentro de la etiqueta div.
 
