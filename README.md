@@ -41,6 +41,8 @@ git push -u origin master
 
 - Main
 
+    - Home
+
     - TodoList
 
         - TodoItem
@@ -53,17 +55,21 @@ git push -u origin master
 
     - CurrentWeather
 
+- NotFound
+
 .
 
 ## Creación, estructuración y conexión de componentes
 
 - Se crean los componentes con el generador instalado:
 
-    - npx crcf src/components/Header Main Footer -j
+    - npx crcf src/components/Header Main Footer NotFound -j
 
     - npx crcf src/components/Header/Nav -j
 
-    - npx crcf src/components/Main/TodoList -j
+    - npx crcf src/components/Footer/CurrentWeather -j
+
+    - npx crcf src/components/Main/Home TodoList -j
 
     - npx crcf src/components/Main/TodoList/TodoItem -j
 
@@ -71,13 +77,13 @@ git push -u origin master
 
     - npx crcf src/components/Main/WeatherList/WeatherCard -j
 
-    - npx crcf src/components/Footer/CurrentWeather -j
+    
 
 .
 
-- Se limpia el código por defecto (átomo giratorio) de App.js, que está dentro de la etiqueta div.
+- En App.js se limpia el código por defecto (átomo giratorio), que está dentro de la etiqueta "div".
 
-- Se importan los componentes BrowserRouter, Header, Main y Footer, y se escriben de tal manera que App.js quedaría así:
+- En App.js se importan los componentes BrowserRouter, Header, Main y Footer, y se escriben de tal manera que quedaría así:
 ```
 import './App.css';
 import Header from './components/Header';
@@ -88,11 +94,11 @@ import { BrowserRouter } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
         <Header/>
-        <Main/>
+        <BrowserRouter>
+            <Main/>
+        </BrowserRouter>
         <Footer/>
-      </BrowserRouter>
     </div>
   );
 }
@@ -100,6 +106,36 @@ function App() {
 export default App;
 ```
 
+.
+
+## Enrutado de los componentes
+
+- En Main.jsx se importan elementos de la dependencia instalada para el routing y se declaran los componentes de las rutas:
+```
+import React, { Component } from 'react'
+import { Route, Routes } from 'react-router-dom';
+import Home from './Home';
+import TodoList from "./TodoList";
+import WeatherList from './WeatherList';
+import NotFound from '../NotFound';
+
+export class Main extends Component {
+  render() {
+    return (
+      <main>
+        <Routes>
+            <Route element={<Home />} path={"/"} />
+            <Route element={<TodoList />} path={"/todo"} />
+            <Route element={<WeatherList />} path={"/weather"} />
+            <Route element={<NotFound />} path={"/*"} />
+        </Routes>
+      </main>
+    )
+  }
+}
+
+export default Main
+```
 
 
 
