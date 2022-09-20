@@ -296,6 +296,60 @@ paintProducts = () => this.state.products.map((product, i) => <ProductItem data=
 
 .
 
+## Creación de formulario para agregar items
+
+En "List.jsx", se escribe en render el siguiente formulario:
+
+```
+<form onSubmit={this.addItem}>
+          
+  <input type="text" id="title" name="title" placeholder="Título..." />
+
+  <input type="text" id="category" name="category" placeholder="Categoría..." />
+          
+  <input type="date" id="date" name="date" />
+
+  <input type="time" id="time" name="time" />
+
+  <textarea type="textarea" id="description" name="description" placeholder="Descripción..." />
+          
+  <input type="text" id="site" name="site" placeholder="Ubicación..." />
+          
+  <input type="url" id="image" name="image" placeholder="URL imagen..." />
+          
+  <input type="submit" value="Agregar item" />
+
+</form>
+```
+
+.
+
+Estos inputs son para que pinte los valores que se introducen en cada uno de los items, por lo que habrá que crear las etiquetas en render de "Input.jsx":
+
+```
+render() {
+  const {title,category,date,time,description,site,image} = this.props.data;
+  let url_img = image || "https://fixner.com/wp-content/uploads/2020/04/Cabecera-Gestion-de-trabajos.jpg";
+
+  return (
+    <article>        
+      <p>{title}</p>
+      <p>{category}</p>
+      <p>{date}</p>
+      <p>{time}</p>
+      <p>{description}</p>
+      <p>{site}</p>
+      <img src={url_img} alt={this.state.title} /><br />
+      <button onClick={this.props.delete}>Borrar</button>
+    </article>
+  )
+}
+```
+
+.
+
+.
+
 ## Función para agregar items
 
 - Se declaran en la función las variables donde se recogen los valores de en los inputs correspondientes.
@@ -311,14 +365,14 @@ addItem = (event) => {
   event.preventDefault();
 
   const title = event.target.title.value;
+  const category = event.target.category.value;
   const date = event.target.date.value;
   const time = event.target.time.value;
   const description = event.target.description.value;
-  const category = event.target.category.value;
   const site = event.target.site.value;
   const image = event.target.image.value;
 
-  const newItem = {title,date,time,description,category,site,image};
+  const newItem = {title,category,date,time,description,site,image};
 
   this.setState({items:[newItem,...this.state.items]})
   }
