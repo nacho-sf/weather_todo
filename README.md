@@ -213,11 +213,11 @@ Esta declaración inidca que si existe longitud en el array items, pinta el bot�
 
 ### Recarga del state del array items:
 
-Para volver a cargar el array de "state", hay que crear una función que haga esto. La lógica consiste en volver a declarar dicho array, en state, con el valor del array de objetos "data" (items:data):
+Para volver a cargar el array de "state", volviendo al estado inicial del array, hay que crear una función que lo haga. La lógica consiste en volver a declarar dicho array, en state, con el valor del array de objetos "data" (items:data):
 
 `resetItems = () => this.setState({items:data});`
 
-Esta función se asocia con un evento "onClick" a un botón situado en render, que cuando se pulsa, ejecutará la lógica de la función "resetItems" y recargará todos los items renderizados en pantalla:
+Esta función se asocia con un evento "onClick" a un botón situado en render, que cuando se pulsa, ejecutará la lógica de la función "resetItems" y volverá al estado inicial del array de objetos, renderizándolo en pantalla:
 
 `<button onClick={this.resetItems}>Recargar items</button>`
 
@@ -312,6 +312,29 @@ A continuación, se declara en render() el botón "Agregar item" con el evento "
 `<Button onClick={this.addItem}>Añadir item</Button>`
 
 .
+
+## Función para borrar un item individualmente
+
+El botón habrá que declararlo en el componente "Item.jsx". Sin embargo, la lógica de borrar item habrá que crearla en el componente padre "List.jsx", ya que es donde se encuentra guardado el array de items (en state de List.jsx). Entonces habrá que declarar la función "deleteItem" (en singular) en "List.jsx" y transmitirla por "props" al componente "Item.jsx" para que la pueda usar. Esta transmisión de datos por "props" se hará en la función "paintItems".
+
+En la función "paintItems" (List.jsx) se le pasa la propiedad `delete={()=>this.deleteItem(i)}` (en este caso una función). A la función de la propiedad anterior se le ha pasado un índice (i), para identificar el elemento que tiene que borrar. Entonces, "paintItems" queda así:
+
+`paintItems = () => this.state.items.map((item, i) => <Item data={item} key={uuidv4()} delete={()=>this.deleteItem(i)}/>)`
+
+Una vez el componente padre "List.jsx" ha transmitido la propiedad "delete", en el componente hijo "Item.jsx" hay que recepcionarla por "props" en el evento "onClick" de un botón, de tal forma que cuando se pulse (en el componente hijo) invocará a la función situada en el componente padre:
+
+`<button onClick={this.props.delete}>Borrar</button>`
+
+En la función "deleteItem", queremos que borre el elemento indicado y que devuelva el array restante para poder cargarlo en el "state". Entonces, se va a utilizar el método FILTER. En este se declara la condición de filtrado y devuelve el array filtrado:
+
+```
+deleteItem = (i) => {
+  const remainingItems = this.state.items.filter((item,j) => i!==j);
+  this.setState({items:remainingItems});
+}
+```
+
+El índice "i" es el elemento que borra y el íncice "j" es el elemento que está iterando. Entonces, se le está diciendo que retorne todos los elementos iterados, los cuales no sean los seleccionados (i!==j), o sea, todos menos el que se ha marcado en el botón de borrar. Este array filtrado se guarda en la variable "remainingItems" y se le pasa a "state" en la siguiente línea de código de la función.
 
 
 
