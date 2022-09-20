@@ -147,17 +147,19 @@ Lo normal es tener muchas propiedades en los componentes. Sin embargo, esto exti
 ```
 [
     {
-        "title":"Tarea 1 ejemplo", 
+        "title":"Tarea 1 ejemplo",         
+        "date":"Fecha 1 de ejemplo",
+        "time":"Hora 1 de ejemplo",
         "description":"Descripción 1 de ejemplo", 
-        "date":"Fecha 1 de ejemplo", 
         "category":"Categoría 1 de ejemplo", 
         "site":"Ubicación 1 de ejemplo",
         "image":"https://fixner.com/wp-content/uploads/2020/04/Cabecera-Gestion-de-trabajos.jpg"
     },
     {
-        "title":"Tarea 2 ejemplo", 
-        "description":"Descripción 2 de ejemplo", 
+        "title":"Tarea 2 ejemplo",         
         "date":"Fecha 2 de ejemplo", 
+        "time":"Hora 2 de ejemplo",
+        "description":"Descripción 2 de ejemplo", 
         "category":"Categoría 2 de ejemplo", 
         "site":"Ubicación 2 de ejemplo",
         "image":"https://fixner.com/wp-content/uploads/2020/04/Cabecera-Gestion-de-trabajos.jpg"
