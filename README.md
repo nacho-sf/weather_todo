@@ -138,11 +138,13 @@ export default Main
 
 .
 
-## Creación de un objeto externo para datos (items) por defecto
+## Externalización de propiedades de los componentes
+
+Lo normal es tener muchas propiedades en los componentes. Sin embargo, esto extiende mucho el código, así que se externalizan estas propiedades en un archivo objeto (JSON):
 
 - En la carpeta "TodoList" se crea el archivo "todoitems.json" con datos para los items de la aplicación:
 
-```No es *.js
+```
 [
     {
         "title":"Tarea 1 ejemplo", 
@@ -170,17 +172,30 @@ export default Main
 - El acceso se va a realizar en el "state" de TodoList.jsx:
 ```
 constructor(props) {
-    super(props)
+  super(props)
     
-    this.state = {
-      items:data
-    }
+  this.state = {
+    items:data
+  }
+}
 ```
 La teoría de JS permite que en "state" solo estuviera escrito "data", porque si le pasas a un objeto una variable que ya existe, este toma como clave el nombre de la variable.
 
-Esto es una precarga en state que proviene de un fichero *.json. Así mismo, los datos podrían provenir de algún otro componente por "props", o de una API externa, escribiendo ahí mismo un script que hiciera una petición.
+Esto es una precarga en state que proviene de un fichero *.json. Así mismo, los datos podrían provenir de algún otro componente por "props", o de un fetch a una API externa, escribiendo ahí mismo un script que hiciera una petición.
 
+.
 
+## Función para pintar los componentes TodoItem
+
+`paintItems = () => this.state.items.map((item, i) => <Item data={item} />)`
+
+- La función se declara fuera de render: `paintItems = () =>`
+
+- "this.state" para acceder a las propiedades precargadas en "state": `this.state`
+
+- Se aplica el método MAP al array "items" para su iteración: `items.map(item,i)`
+
+- Se le pasa el elemento iterable "item" y el índice "i", para que en cada iteración retorne `=>` el componente con sus propiedades correspondientes a cada posición del array: `<Item data={item}`
 
 .
 
@@ -257,7 +272,3 @@ export class ProductItem extends Component {
 - Usar React Leaflet para mapas
 
 - Usar librería MUI
-
-- Para crear la estructura inicial de los componentes se usa el atajo de teclado "rce"
-
-- IMportación de Header Main y Footer a App
