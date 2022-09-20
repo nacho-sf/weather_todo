@@ -339,7 +339,7 @@ render() {
       <p>{time}</p>
       <p>{description}</p>
       <p>{site}</p>
-      <img src={url_img} alt={this.state.title} /><br />
+      <img src={url_img} alt={title} /><br />
       <button onClick={this.props.delete}>Borrar</button>
     </article>
   )
@@ -517,7 +517,22 @@ export class ProductItem extends Component {
 
 .
 
-- Mirar la lógica de Nacho 3 para vaciar los imputs
+Lógica para borrar los inputs tras enviar el formulario
+```
+handleSubmit(e){
+    e.preventDefault();
+    e.target.reset();
+}
+// If using class component
+<form onSubmit={this.handleSubmit.bind(this)}>
+  ...
+</form>
+
+// If using function component
+<form onSubmit={handleSubmit}>
+  ...
+</form>
+```
 
 - Usar React Leaflet para mapas
 
