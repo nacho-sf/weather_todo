@@ -245,6 +245,7 @@ Colocando el nombre de la función junto a los paréntesis "paintItem()" se ejec
 
 .
 
+
 ## ID único para cada componente TodoItem
 
 A cada uno de los componentes se le debe añadir un identificador, de esta manera:
@@ -257,6 +258,41 @@ import { v4 as uuidv4 } from 'uuid';
 
 paintProducts = () => this.state.products.map((product, i) => <ProductItem data={product} key={uuidv4()} />);
 ```
+
+.
+
+## Función para agregar items
+
+- Se declaran en la función las variables donde se recogen los valores de en los inputs correspondientes.
+
+- Se declara el nuevo item (newItem), siendo las claves las variables declaradas de las propiedades, y los valores las propiedades recogidas de los inputs en el formulario.
+
+- Al array items se le establece un nuevo objeto, modificando el estado (setState).
+
+- Para añadir el nuevo item se a utilizar Spread operator. Este código forma un array con lo que ya había(esparce el array en elementos), más un nuevo elemento.
+
+```
+addProduct = (event) => {
+  event.preventDefault();
+
+  const title = event.target.title.value;
+  const date = event.target.date.value;
+  const time = event.target.time.value;
+  const description = event.target.description.value;
+  const category = event.target.category.value;
+  const site = event.target.site.value;
+  const image = event.target.image.value;
+
+  const newItem = {title,date,time,description,category,site,image};
+
+  this.setState({items:[newItem,...this.state.items]})
+  }
+```
+
+
+
+
+.
 
 .
 
