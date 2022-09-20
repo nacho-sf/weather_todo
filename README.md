@@ -185,6 +185,28 @@ Esto es una precarga en state que proviene de un fichero *.json. Así mismo, los
 
 .
 
+## Vaciado del state del array items
+
+Para este fin, hay que crear una función que haga esto. La lógica consiste en declarar dicho array, en state, con valor vacío (items:[]).
+
+Para cambiar valores en "state", se utiliza la declaración "this.setState". Para leer valores basta con "this.state". Entonces, la función se declara de la siguiente manera:
+
+`deleteItems = () => this.setState({items:[]});`
+
+Esta función se asocia a un botón situado en render, que cuando se pulsa, ejecutará la lógica de la función "deleteItems" y borrará todos los items renderizados en pantalla:
+
+`<button onClick={this.deleteItems}>Borrar items</button>`
+
+Atención a la declaración de la función. Esta está sin paréntesis porque si los llevara, se ejecutaría en el momento en que se iniciara la renderización y no esperaría a ningún evento asociado.
+
+A continuación, se refactoriza el botón "Borrar items" para que desaparezca de pantalla una vez estén los items borrados. Para ello, se le aplica al botón un condicional ternario:
+
+`{this.state.items.length? <button onClick={this.deleteItems}>Borrar items</button> :""}`
+
+Esta declaración inidca que si existe longitud en el array items, pinta el botón, si no, pinta vacío.
+
+.
+
 ## Función para pintar los componentes TodoItem
 
 En lugar de escribir dentro del renderizado cada uno de los componentes "TodoItem":
@@ -235,6 +257,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 paintProducts = () => this.state.products.map((product, i) => <ProductItem data={product} key={uuidv4()} />);
 ```
+
+.
 
 ## Destructuración para simplificar rutas de objetos
 
