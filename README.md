@@ -236,6 +236,33 @@ import { v4 as uuidv4 } from 'uuid';
 paintProducts = () => this.state.products.map((product, i) => <ProductItem data={product} key={uuidv4()} />);
 ```
 
+## Destructuración para simplificar rutas de objetos
+
+La sección donde haya HTML hay que intentar dejarla limpia. Si hubiera que acceder a un objeto complejo la ruta podría quedar demasiado larga:
+```
+render() {
+  return (
+    <article>
+      <h3>{this.props.data.info}</h3>
+      <p>Price: {this.props.data.price}€</p>
+    </article>
+  )
+}
+```
+
+Para esto, se puede aplicar destructuración:
+```
+render() {
+  const {info,price,image} = this.props.data;
+
+  return (
+    <article>
+      <h3>{info}</h3>
+      <p>Price: {price}€</p>
+    </article>
+  )
+}
+```
 
 .
 
