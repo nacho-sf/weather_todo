@@ -184,8 +184,28 @@ Se crea un constructor, con el atajo de teclado "rconst". Este viene con el atri
 
 Ejemplo:
 
+```
+export class ProductItem extends Component {
 
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      name: this.props.data.name  //--> Acceso al objeto data por props
+    }
+  }
 
+  render() {
+    return (
+      <article>
+        <h2>{this.state.name}</h2>  //--> Acceso al dato por state
+      </article>
+    )
+  }
+}
+```
+
+.
 
 - Mirar la lógica de Nacho 3 para vaciar los imputs
 
