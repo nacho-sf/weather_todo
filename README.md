@@ -143,11 +143,9 @@ export default Main
 
 ### PROPS:
 
-Declaración en padre:
-- `<Componente property1={value1} />`
+- Declaración en padre: `<Componente property1={value1} />`
 
-Acceso en hijo:
-- `<etiqueta> {this.props.property1} === value1 </etiqueta>`
+- Acceso en hijo: `<etiqueta> {this.props.property1} === value1 </etiqueta>`
 
 .
 
@@ -178,11 +176,9 @@ En componente hijo `Item.jsx`:
 
 Se crea un constructor, con el atajo de teclado "rconst". Este viene con el atributo de clase "this.state" y se usa como una memoria para guardar datos.
 
-- Declaración en hijo:
-`this.state = {prop1:"value1"}`
+- Declaración en hijo: `this.state = {prop1:"value1"}`
 
-- Acceso en hijo:
-`<etiqueta> {this.state.prop1} </etiqueta>`
+- Acceso en hijo: `<etiqueta> {this.state.prop1} </etiqueta>`
 
 .
 
