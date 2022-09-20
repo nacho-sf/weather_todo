@@ -75,6 +75,7 @@ git push -u origin master
 
     - npx crcf src/components/Main/WeatherList/WeatherCard -j
 
+Se puede hacer individualmente, creando las carpetas y sus archivos correctamente anidados, e incluyendo en cada archivo *.jsx los componentes de clase con el atajo de teclado "rce".
     
 
 .
@@ -142,11 +143,12 @@ export default Main
 
 ### PROPS:
 
-`<Componente property1={value1} /> --> <Etiqueta> {this.props.property1} === value1 </etiqueta>`
+Declaración en padre:              --> Acceso en hijo:
+`<Componente property1={value1} /> --> <etiqueta> {this.props.property1} === value1 </etiqueta>`
 
 Ejemplo:
 
-En componente padre `List`:
+En componente padre `List.jsx`:
 ```
 <div>
   <Item prop1={"value1"} prop2={value1} />    //---> value1 === String, value2 == number...
@@ -156,7 +158,7 @@ En componente padre `List`:
 </div>
 ```
 
-En componente hijo `Item`:
+En componente hijo `Item.jsx`:
 ```
 <div>
   <h3>Prop1: {this.props.prop1}</h3>   //---> <h3>Prop1: "value 1, 2..."</h3>
@@ -168,6 +170,14 @@ En componente hijo `Item`:
 .
 
 ### STATE:
+
+Se crea un constructor, con el atajo de teclado "rconst". Este viene con el atributo de clase "this.state" y se usa como una memoria para guardar datos.
+
+Declaración en hijo:           --> Acceso en hijo:
+`this.state = {prop1:"value1"} --> <etiqueta> {this.state.prop1} </etiqueta>`
+
+Ejemplo:
+
 
 
 
