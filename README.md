@@ -187,13 +187,13 @@ Esto es una precarga en state que proviene de un fichero *.json. Así mismo, los
 
 ## Precarga y descarga del state del array items
 
-Para este fin, hay que crear una función que haga esto. La lógica consiste en declarar dicho array, en state, con valor vacío (items:[]).
+La precarga en "state" ya se ha hecho, declarando en el objeto items el array de items. Para la descarga, hay que crear una función que haga esto. La lógica consiste en declarar dicho array, en state, con valor vacío (items:[]).
 
 Para cambiar valores en "state", se utiliza la declaración "this.setState". Para leer valores basta con "this.state". Entonces, la función se declara de la siguiente manera:
 
 `deleteItems = () => this.setState({items:[]});`
 
-Esta función se asocia a un botón situado en render, que cuando se pulsa, ejecutará la lógica de la función "deleteItems" y borrará todos los items renderizados en pantalla:
+Esta función se asocia con un evento "onClick" a un botón situado en render, que cuando se pulsa, ejecutará la lógica de la función "deleteItems" y borrará todos los items renderizados en pantalla:
 
 `<button onClick={this.deleteItems}>Borrar items</button>`
 
@@ -363,3 +363,9 @@ export class ProductItem extends Component {
 - Usar React Leaflet para mapas
 
 - Usar librería MUI
+
+.
+
+.
+
+VÍDEO Parte I MIN. 50:50 --> Creación de la función addItem()
