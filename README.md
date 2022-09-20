@@ -146,6 +146,48 @@ export default Main
 
 .
 
+## Creación de una barra de navegación
+
+Para hacer una barra de navegación la vamos a declarar como componente hijo (Nav) anidado en el componente padre "Header".
+
+En "Nav.jsx" se importa la clase "Link" y luego tantos componentes "Link" como haya:
+```
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
+class Nav extends Component {
+  render() {
+    return <nav>
+        <Link to="/">Home</Link>
+        <Link to="/todo">TodoList</Link>
+        <Link to="/weather">Weather</Link>
+      </nav>;
+    
+  }
+}
+```
+
+Ahora, en "Header.jsx", hay que conectar el componente hijo "Nav" al componente padre "Header". Se importa el componente "Nav" y se declara entre las etiquetas "Header":
+```
+import React, { Component } from 'react';
+import Nav from './Nav/Nav'
+
+export class Header extends Component {
+  render() {
+    return (
+      <header>
+        <Nav />
+      </header>
+    )
+  }
+}
+```
+Por último, en "App.js", hay que incluir el componente "Header" dentro de las etiquetas "BrowserRouter" porque ahora, con la barra de navegación, entra en juego en la funcionalidad del enrutado.
+
+.
+
+.
+
 ## Externalización de propiedades de los componentes
 
 Lo normal es tener muchas propiedades en los componentes. Sin embargo, esto extiende mucho el código, así que se externalizan estas propiedades en un archivo objeto (JSON):
