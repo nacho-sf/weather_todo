@@ -149,6 +149,8 @@ Declaración en padre:
 Acceso en hijo:
 - `<etiqueta> {this.props.property1} === value1 </etiqueta>`
 
+.
+
 Ejemplo:
 
 En componente padre `List.jsx`:
@@ -176,8 +178,13 @@ En componente hijo `Item.jsx`:
 
 Se crea un constructor, con el atajo de teclado "rconst". Este viene con el atributo de clase "this.state" y se usa como una memoria para guardar datos.
 
-Declaración en hijo:           --> Acceso en hijo:
-`this.state = {prop1:"value1"} --> <etiqueta> {this.state.prop1} </etiqueta>`
+- Declaración en hijo:
+`this.state = {prop1:"value1"}`
+
+- Acceso en hijo:
+`<etiqueta> {this.state.prop1} </etiqueta>`
+
+.
 
 Ejemplo:
 
