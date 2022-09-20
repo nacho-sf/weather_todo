@@ -396,6 +396,8 @@ render() {
 
 ## Paso de propiedades de componente padre a hijo
 
+.
+
 ### PROPS:
 
 - Declaración en padre: `<Componente property1={value1} />`
@@ -423,8 +425,6 @@ En componente hijo `Item.jsx`:
   <p>Prop2: {this.props.prop2}</p>   //---> <p>Prop2: "value 1, 2..."</p>
 </div>
 ```
-
-.
 
 .
 
