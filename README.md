@@ -271,7 +271,7 @@ paintProducts = () => this.state.products.map((product, i) => <ProductItem data=
 
 - Al array items se le establece un nuevo objeto, modificando el estado (setState).
 
-- Para añadir el nuevo item se a utilizar Spread operator. Este código forma un array con lo que ya había(esparce el array en elementos), más un nuevo elemento.
+- Para añadir el nuevo item se a utilizar Spread operator. Este código forma un array con lo que ya había(esparce el array en elementos), y anexiona el nuevo elemento.
 
 ```
 addProduct = (event) => {
@@ -291,6 +291,11 @@ addProduct = (event) => {
   }
 ```
 
+.
+
+A continuación, se declara en render() el botón "Agregar item" con el evento "onClick" asociado a la función "addItem":
+
+`<Button onClick={this.addProduct}>Añadir producto</Button>`
 
 
 
