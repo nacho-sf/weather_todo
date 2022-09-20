@@ -185,7 +185,7 @@ Esto es una precarga en state que proviene de un fichero *.json. Así mismo, los
 
 .
 
-## Vaciado del state del array items
+## Precarga y descarga del state del array items
 
 Para este fin, hay que crear una función que haga esto. La lógica consiste en declarar dicho array, en state, con valor vacío (items:[]).
 
