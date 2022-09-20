@@ -33,6 +33,8 @@ git push -u origin master
 
 .
 
+.
+
 ## Diseño de la estructura de componentes
 
 - Header
@@ -56,6 +58,8 @@ git push -u origin master
     - CurrentWeather
 
 - NotFound
+
+.
 
 .
 
@@ -107,6 +111,8 @@ export default App;
 
 .
 
+.
+
 ## Enrutado de los componentes
 
 - En Main.jsx se importan elementos de la dependencia instalada para el routing y se declaran los componentes de las rutas:
@@ -135,6 +141,8 @@ export class Main extends Component {
 
 export default Main
 ```
+
+.
 
 .
 
@@ -187,6 +195,8 @@ Esto es una precarga en state que proviene de un fichero *.json. Así mismo, los
 
 .
 
+.
+
 ## Función para borrar los items
 
 ### Descarga del state del array items:
@@ -211,6 +221,8 @@ Esta declaración inidca que si existe longitud en el array items, pinta el bot�
 
 .
 
+.
+
 ## Función para recargar los items
 
 ### Recarga del state del array items:
@@ -222,6 +234,8 @@ Para volver a cargar el array de "state", volviendo al estado inicial del array,
 Esta función se asocia con un evento "onClick" a un botón situado en render, que cuando se pulsa, ejecutará la lógica de la función "resetItems" y volverá al estado inicial del array de objetos, renderizándolo en pantalla:
 
 `<button onClick={this.resetItems}>Recargar items</button>`
+
+.
 
 .
 
@@ -263,6 +277,7 @@ Colocando el nombre de la función junto a los paréntesis "paintItem()" se ejec
 
 .
 
+.
 
 ## ID único para cada componente TodoItem
 
@@ -276,6 +291,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 paintProducts = () => this.state.products.map((product, i) => <ProductItem data={product} key={uuidv4()} />);
 ```
+
+.
 
 .
 
@@ -315,6 +332,8 @@ A continuación, se declara en render() el botón "Agregar item" con el evento "
 
 .
 
+.
+
 ## Función para borrar un item individualmente
 
 El botón habrá que declararlo en el componente "Item.jsx". Sin embargo, la lógica de borrar item habrá que crearla en el componente padre "List.jsx", ya que es donde se encuentra guardado el array de items (en state de List.jsx). Entonces habrá que declarar la función "deleteItem" (en singular) en "List.jsx" y transmitirla por "props" al componente "Item.jsx" para que la pueda usar. Esta transmisión de datos por "props" se hará en la función "paintItems".
@@ -337,7 +356,6 @@ deleteItem = (i) => {
 ```
 
 El índice "i" es el elemento que borra y el íncice "j" es el elemento que está iterando. Entonces, se le está diciendo que retorne todos los elementos iterados, los cuales no sean los seleccionados (i!==j), o sea, todos menos el que se ha marcado en el botón de borrar. Este array filtrado se guarda en la variable "remainingItems" y se le pasa a "state" en la siguiente línea de código de la función.
-
 
 
 .
@@ -374,6 +392,8 @@ render() {
 
 .
 
+.
+
 ## Paso de propiedades de componente padre a hijo
 
 ### PROPS:
@@ -404,6 +424,7 @@ En componente hijo `Item.jsx`:
 </div>
 ```
 
+.
 
 .
 
@@ -451,5 +472,3 @@ export class ProductItem extends Component {
 .
 
 .
-
-VÍDEO Parte I MIN. 50:50 --> Creación de la función addItem()
