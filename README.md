@@ -142,12 +142,14 @@ export default Main
 
 ### PROPS:
 
-`property1={value1} --> {this.props.property1} === value1`
+`<Componente property1={value1} /> --> <Etiqueta> {this.props.property1} === value1 </etiqueta>`
+
+Ejemplo:
 
 En componente padre `List`:
 ```
 <div>
-  <Item prop1={"value1"} prop2={value1} />    //---> value1 == String, value2 == number...
+  <Item prop1={"value1"} prop2={value1} />    //---> value1 === String, value2 == number...
   <Item prop1={"value2"} prop2={value2} />    // ...
   <Item prop1={"value2"} prop2={value2} />    // ...
   ...
