@@ -136,6 +136,21 @@ export default Main
 ```
 
 
+.
+
+## PROPS: Paso de propiedades de componente padre a hijo
+
+En componente padre `List`:
+´´´
+<div>
+  <Item prop1={"string7"} prop2={number5} />
+  <Item prop1={"string98"} prop2={number86} />
+</div>
+´´´
+
+En componente hijo `Item`:
+
+- 
 
 
 
