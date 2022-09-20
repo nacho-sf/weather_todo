@@ -187,15 +187,39 @@ Esto es una precarga en state que proviene de un fichero *.json. Así mismo, los
 
 ## Función para pintar los componentes TodoItem
 
+En lugar de escribir dentro del renderizado cada uno de los componentes "TodoItem":
+```
+<TodoItem data = {items[0]}/>
+<TodoItem data = {items[1]}/>
+<TodoItem data = {items[2]}/>
+...
+```
+
+Se declara una función (fuera de render) que pinte cada uno de los componentes con sus respectivas propiedades.
+
 `paintItems = () => this.state.items.map((item, i) => <Item data={item} />)`
 
-- La función se declara fuera de render: `paintItems = () =>`
+- La función se declara fuera de render, porque esta función es un método al nivel de render: `paintItems = () =>`
 
 - "this.state" para acceder a las propiedades precargadas en "state": `this.state`
 
 - Se aplica el método MAP al array "items" para su iteración: `items.map(item,i)`
 
 - Se le pasa el elemento iterable "item" y el índice "i", para que en cada iteración retorne `=>` el componente con sus propiedades correspondientes a cada posición del array: `<Item data={item}`
+
+- Se invoca a la función "paintItems" en "render":
+```
+render() {
+
+  return (
+    <section>
+      <h1>Items de Tareas: </h1>
+        {this.paintProducts()}
+    </section>
+  )
+}
+```
+Colocando el nombre de la función junto a los paréntesis "paintItem()" se ejecuta directamente. En la aplicaciones de ejecución asociados a eventos (botones, etc...) se bebe colocar el nombre de la función sin los paréntesis, porque si no, no esperará para la ejecución.
 
 .
 
