@@ -136,6 +136,41 @@ export class Main extends Component {
 export default Main
 ```
 
+.
+
+## Creación de un objeto externo para datos (items) por defecto
+
+- En la carpeta "TodoList" se crea el archivo "todoitems.json" con datos para los items de la aplicación:
+
+```No es *.js
+[
+    {
+        "title":"Tarea 1 ejemplo", 
+        "description":"Descripción 1 de ejemplo", 
+        "date":"Fecha 1 de ejemplo", 
+        "category":"Categoría 1 de ejemplo", 
+        "site":"Ubicación 1 de ejemplo",
+        "image":"https://fixner.com/wp-content/uploads/2020/04/Cabecera-Gestion-de-trabajos.jpg"
+    },
+    {
+        "title":"Tarea 2 ejemplo", 
+        "description":"Descripción 2 de ejemplo", 
+        "date":"Fecha 2 de ejemplo", 
+        "category":"Categoría 2 de ejemplo", 
+        "site":"Ubicación 2 de ejemplo",
+        "image":"https://fixner.com/wp-content/uploads/2020/04/Cabecera-Gestion-de-trabajos.jpg"
+    }
+]
+```
+
+- Se importa en TodoList.jsx para tener acceso al mismo: `import data from './todoitems.json'`
+
+
+
+
+El acceso se va a realizar en el "state" de TodoList.jsx
+
+
 
 .
 
@@ -174,7 +209,7 @@ En componente hijo `Item.jsx`:
 
 ### STATE:
 
-Se crea un constructor, con el atajo de teclado "rconst". Este viene con el atributo de clase "this.state" y se usa como una memoria para guardar datos.
+Se crea un constructor, con el atajo de teclado "rconst". Este viene con el atributo de clase "this.state" que se usa como una memoria para guardar datos.
 
 - Declaración en hijo: `this.state = {prop1:"value1"}`
 
