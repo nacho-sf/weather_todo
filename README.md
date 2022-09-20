@@ -143,11 +143,11 @@ export default Main
 
 ### PROPS:
 
-Declaración en padre:             
-`<Componente property1={value1} />`
+Declaración en padre:
+- `<Componente property1={value1} />`
 
 Acceso en hijo:
-`<etiqueta> {this.props.property1} === value1 </etiqueta>`
+- `<etiqueta> {this.props.property1} === value1 </etiqueta>`
 
 Ejemplo:
 
