@@ -185,9 +185,9 @@ Esto es una precarga en state que proviene de un fichero *.json. Así mismo, los
 
 .
 
-## Función para borrar items
+## Función para borrar los items
 
-### Precarga y descarga del state del array items:
+### Descarga del state del array items:
 
 La precarga en "state" ya se ha hecho, declarando en el objeto items el array de items. Para la descarga, hay que crear una función que haga esto. La lógica consiste en declarar dicho array, en state, con valor vacío (items:[]).
 
@@ -206,6 +206,20 @@ A continuación, se refactoriza el botón "Borrar items" para que desaparezca de
 `{this.state.items.length? <button onClick={this.deleteItems}>Borrar items</button> :""}`
 
 Esta declaración inidca que si existe longitud en el array items, pinta el botón, si no, pinta vacío.
+
+.
+
+## Función para recargar los items
+
+### Recarga del state del array items:
+
+Para volver a cargar el array de "state", hay que crear una función que haga esto. La lógica consiste en volver a declarar dicho array, en state, con el valor del array de objetos "data" (items:data):
+
+`resetItems = () => this.setState({items:data});`
+
+Esta función se asocia con un evento "onClick" a un botón situado en render, que cuando se pulsa, ejecutará la lógica de la función "resetItems" y recargará todos los items renderizados en pantalla:
+
+`<button onClick={this.resetItems}>Recargar items</button>`
 
 .
 
@@ -296,6 +310,8 @@ addItem = (event) => {
 A continuación, se declara en render() el botón "Agregar item" con el evento "onClick" asociado a la función "addItem":
 
 `<Button onClick={this.addItem}>Añadir item</Button>`
+
+.
 
 
 
