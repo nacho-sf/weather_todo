@@ -295,7 +295,7 @@ addItem = (event) => {
 
 A continuación, se declara en render() el botón "Agregar item" con el evento "onClick" asociado a la función "addItem":
 
-`<Button onClick={this.addItem}>Añadir producto</Button>`
+`<Button onClick={this.addItem}>Añadir item</Button>`
 
 
 
