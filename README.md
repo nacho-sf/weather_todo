@@ -185,9 +185,9 @@ Esto es una precarga en state que proviene de un fichero *.json. Así mismo, los
 
 .
 
-## Función borrar items
+## Función para borrar items
 
-### Precarga y descarga del state del array items
+### Precarga y descarga del state del array items:
 
 La precarga en "state" ya se ha hecho, declarando en el objeto items el array de items. Para la descarga, hay que crear una función que haga esto. La lógica consiste en declarar dicho array, en state, con valor vacío (items:[]).
 
