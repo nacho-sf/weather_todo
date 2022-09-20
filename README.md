@@ -143,16 +143,17 @@ export default Main
 En componente padre `List`:
 ```
 <div>
-  <Item prop1={"value1"} prop2={value1} />
-  <Item prop1={"value2"} prop2={value2} />
+  <Item prop1={"value1"} prop2={value1} />    //---> value1 == String, value2 == number...
+  <Item prop1={"value2"} prop2={value2} />    // ...
+  ...
 </div>
 ```
 
 En componente hijo `Item`:
 ```
 <div>
-  <p>Prop1: {this.props.prop1}</p> //----> <p>Prop1: "value 1, 2..."</p>
-  <p>Prop2: {this.props.prop2}</p> //----> <p>Prop2: "value 1, 2..."</p>
+  <p>Prop1: {this.props.prop1}</p>   //---> <p>Prop1: "value 1, 2..."</p>
+  <p>Prop2: {this.props.prop2}</p>   //---> <p>Prop2: "value 1, 2..."</p>
   ...
 </div>
 ```
