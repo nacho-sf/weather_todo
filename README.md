@@ -197,15 +197,15 @@ En lugar de escribir dentro del renderizado cada uno de los componentes "TodoIte
 
 Se declara una función (fuera de render) que pinte cada uno de los componentes con sus respectivas propiedades.
 
-`paintItems = () => this.state.items.map((item, i) => <Item data={item} />)`
+`paintItems = () => this.state.items.map(item) => <Item data={item} />`
 
 - La función se declara fuera de render, porque esta función es un método al nivel de render: `paintItems = () =>`
 
 - "this.state" para acceder a las propiedades precargadas en "state": `this.state`
 
-- Se aplica el método MAP al array "items" para su iteración: `items.map(item,i)`
+- Se aplica el método MAP al array "items" para su iteración: `items.map(item)`
 
-- Se le pasa el elemento iterable "item" y el índice "i", para que en cada iteración retorne `=>` el componente con sus propiedades correspondientes a cada posición del array: `<Item data={item}`
+- Se le pasa el elemento iterable "item", para que en cada iteración retorne `=>` el componente con sus propiedades correspondientes a cada posición del array: `<Item data={item}`
 
 - Se invoca a la función "paintItems" en "render":
 ```
@@ -220,6 +220,22 @@ render() {
 }
 ```
 Colocando el nombre de la función junto a los paréntesis "paintItem()" se ejecuta directamente. En la aplicaciones de ejecución asociados a eventos (botones, etc...) se bebe colocar el nombre de la función sin los paréntesis, porque si no, no esperará para la ejecución.
+
+.
+
+## ID único para cada componente TodoItem
+
+A cada uno de los componentes se le debe añadir un identificador, de esta manera:
+
+`paintItems = () => this.state.items.map(item, i) => <Item data={item} key={i} />`
+
+A esta función, le estamos pidiendo el index "i", y lo estamos aplicando como ID. Sin embargo, es más recomendable que este ID sea único, así que se usará una librería de identificadores autogenerados, aplicándose así:
+```
+import { v4 as uuidv4 } from 'uuid';
+
+paintProducts = () => this.state.products.map((product, i) => <ProductItem data={product} key={uuidv4()} />);
+```
+
 
 .
 
