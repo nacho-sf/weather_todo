@@ -163,12 +163,22 @@ export default Main
 ]
 ```
 
+.
+
 - Se importa en TodoList.jsx para tener acceso al mismo: `import data from './todoitems.json'`
 
+- El acceso se va a realizar en el "state" de TodoList.jsx:
+```
+constructor(props) {
+    super(props)
+    
+    this.state = {
+      items:data
+    }
+```
+La teoría de JS permite que en "state" solo estuviera escrito "data", porque si le pasas a un objeto una variable que ya existe, este toma como clave el nombre de la variable.
 
-
-
-El acceso se va a realizar en el "state" de TodoList.jsx
+Esto es una precarga en state que proviene de un fichero *.json. Así mismo, los datos podrían provenir de algún otro componente por "props", o de una API externa, escribiendo ahí mismo un script que hiciera una petición.
 
 
 
