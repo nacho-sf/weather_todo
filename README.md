@@ -290,10 +290,11 @@ En lugar de escribir dentro del renderizado cada uno de los componentes "TodoIte
 <TodoItem data = {items[2]}/>
 ...
 ```
+Se importa el componente "Item.jsx"
 
 Se declara una función (fuera de render) que pinte cada uno de los componentes con sus respectivas propiedades.
 
-`paintItems = () => this.state.items.map(item) => <Item data={item} />`
+`paintItems = () => this.state.items.map(item => <Item data={item} />)`
 
 - La función se declara fuera de render, porque esta función es un método al nivel de render: `paintItems = () =>`
 
@@ -310,7 +311,7 @@ render() {
   return (
     <section>
       <h1>Items de Tareas: </h1>
-        {this.paintProducts()}
+        {this.paintItems()}
     </section>
   )
 }
@@ -325,13 +326,13 @@ Colocando el nombre de la función junto a los paréntesis "paintItem()" se ejec
 
 A cada uno de los componentes se le debe añadir un identificador, de esta manera:
 
-`paintItems = () => this.state.items.map(item, i) => <Item data={item} key={i} />`
+`paintItems = () => this.state.items.map((item, i) => <Item data={item} key={i} />)`
 
 A esta función, le estamos pidiendo el index "i", y lo estamos aplicando como ID. Sin embargo, es más recomendable que este ID sea único, así que se usará una librería de identificadores autogenerados, aplicándose así:
 ```
 import { v4 as uuidv4 } from 'uuid';
 
-paintProducts = () => this.state.products.map((product, i) => <ProductItem data={product} key={uuidv4()} />);
+paintItems = () => this.state.items.map((item, i) => <Item data={item} key={uuidv4()} />);
 ```
 
 .
@@ -422,9 +423,8 @@ addItem = (event) => {
 
 .
 
-A continuación, se declara en render() el botón "Agregar item" con el evento "onClick" asociado a la función "addItem":
+A continuación, se declara en el mismo formulario el evento "onSubmit" asociado a la función "addItem"
 
-`<Button onClick={this.addItem}>Añadir item</Button>`
 
 .
 
