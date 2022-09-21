@@ -3,12 +3,12 @@ import { v4 as uuidv4 } from "uuid"
 
 import WeatherCard from './WeatherCard'
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 class WeatherList extends Component {
 
     constructor(props) {
         super(props);
-
-        
 
         this.state = { 
             weatherList:this.props.defaultList
@@ -17,25 +17,21 @@ class WeatherList extends Component {
     };
     
     
-
-
-
     async componentDidMount(){
         this.getDataWeather("Madrid");
         console.log('componentDidMount');
     }
-
+    
     async getDataWeather(city){
-        const resp = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=5b7c3c118156d3cf093cbde48c30eb8b`);
+        const resp = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${API_KEY}`);
         const data = await resp.json();
-        
         this.setState({
             weatherList:data.list
         })
     }
 
     handleChange = (event) => {
-        e.preventDefault();
+        event.preventDefault();
         const city = event.target.city.value;
         alert(city);
         alert("hola");
