@@ -34,9 +34,9 @@ class WeatherList extends Component {
         })
     }
 
-    handleChange = (e) => {
+    handleChange = (event) => {
         e.preventDefault();
-        const city = e.target.city.value;
+        const city = event.target.city.value;
         alert(city);
         alert("hola");
         this.setState({ city });
