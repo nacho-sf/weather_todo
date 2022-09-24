@@ -10,7 +10,9 @@ class TodoList extends Component {
     super(props)
   
     this.state = {
-       items:data
+      
+      items:data
+      
     };
   };
 
@@ -44,6 +46,7 @@ class TodoList extends Component {
   }
 
   render() {
+
     return <div>
 
         <form onSubmit={this.addItem}>

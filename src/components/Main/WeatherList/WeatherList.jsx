@@ -30,13 +30,12 @@ class WeatherList extends Component {
         })
     }
 
-    handleChange = (event) => {
+    getCityWeather = (event) => {
         event.preventDefault();
         const city = event.target.city.value;
-        alert(city);
-        alert("hola");
         this.setState({ city });
         this.getDataWeather(city);
+        event.target.reset();
     }
 
     render() {
@@ -44,15 +43,13 @@ class WeatherList extends Component {
         return (
             <section>
                 <h3>Ciudad: {this.state.city}</h3>
-                <form onSubmit={this.handleChange}>
+                <form onSubmit={this.getCityWeather}>
                     <input type="text" id="city" name="city" />
                     <input type="submit"  value="Enviar"/>
                 </form>
 
-                
-
                 <div>
-                <h3>Lista del tiempo</h3>
+                <h3>Pronóstico por horas</h3>
                     {this.state.weatherList.map(weathercard => 
                     <WeatherCard data={weathercard} key={uuidv4()}/>)}
                 </div>

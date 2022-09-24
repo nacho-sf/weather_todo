@@ -80,6 +80,10 @@ git push -u origin master
     - npx crcf src/components/Main/WeatherList/WeatherCard -j
 
 Se puede hacer individualmente, creando las carpetas y sus archivos correctamente anidados, e incluyendo en cada archivo *.jsx los componentes de clase con el atajo de teclado "rce".
+
+Para que los archivos se creen con extensión *.jsx se coloca al final -j
+
+Para que los ficheros se creen sin los archivos css se coloca al final --nocss
     
 
 .
